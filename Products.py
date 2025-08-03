@@ -3,19 +3,7 @@ import pymongo
 import datetime
 import time
 
-conn=mysql.connector.connect(host="localhost",
-                             user="root",
-                             passwd="123456")
-cur=conn.cursor()
-cur.execute("use PythonPart2")
-cur.execute("create table if not exists ProductsDetails(ProductId int primary key,ProductName varchar(20),ProductDesc varchar(50),ProductCost float(8,2),ProductEntryDate date,ProductEntryTime time)")
-conn.commit()
-print("My SQL Connected Successfully")
-
-client=pymongo.MongoClient("mongodb://localhost:27017/")
-db=client["PythonPart2"]
-coll=db["Products"]
-print("MonGo Db Connected Successfully")
+# Database Setup
 
 class Products:
     def add(self):
@@ -131,4 +119,5 @@ while(Choice!=5):
         Choice=int(input("\nEnter Your Choice: "))
     else:
         pass
+
 
